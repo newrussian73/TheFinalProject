@@ -11,8 +11,10 @@ class LoginPageLocators():
 
 
 class ProductPageLocators():
-    MESSAGE_ADD_BASKET = (By.CLASS_NAME, 'alert.alert-safe.alert-noicon.alert-success.fade.in')
-    NAME_OF_GOOD = (By.CLASS_NAME, 'col-sm-6.product_main')
+    MESSAGE_ADD_BASKET = (By.XPATH, '//*[@id="messages"]/div[1]/div/strong')
+    NAME_OF_GOOD = (By.XPATH, '//*[@id="content_inner"]/article/div[1]/div[2]/h1')
     COST_OF_BOOK = (By.CLASS_NAME, 'price_color')
     MESSAGE_COST_BASKET = (By.CLASS_NAME, 'alert.alert-safe.alert-noicon.alert-info.fade.in')
     ADD_TO_BASKET = (By.CLASS_NAME, 'btn.btn-lg.btn-primary.btn-add-to-basket')
+
+

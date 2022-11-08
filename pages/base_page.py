@@ -4,21 +4,25 @@ import math
 
 
 class BasePage():
+    # Инициализация браузера
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
         self.url = url
         self.browser.implicitly_wait(timeout)
 
-    # def open(self):
-    #     self.browser.get(self.url)
-    #
-    # def is_element_present(self, how, what):
-    #     try:
-    #         self.browser.find_element(how, what)
-    #     except NoSuchElementException:
-    #         return False
-    #     return True
+    # Открытие сайта (url)
+    def open(self):
+        self.browser.get(self.url)
 
+    # Сообщение если попадает исключение
+    def is_element_present(self, how, what):
+        try:
+            self.browser.find_element(how, what)
+        except NoSuchElementException:
+            return False
+        return True
+
+    # Для решение уравнения для Stepik.org
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]
