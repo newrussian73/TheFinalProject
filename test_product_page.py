@@ -1,5 +1,4 @@
 from .pages.product_page import ProductPage
-import time
 
 
 def test_quest_can_add_book_to_basket(browser):

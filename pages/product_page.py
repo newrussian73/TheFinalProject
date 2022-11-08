@@ -18,14 +18,14 @@ class ProductPage(BasePage):
         button_basket.click()
 #Проверка присутствия сообщение о добавлении в корзину
     def message_of_add_to_basket(self):
-        assert self.browser.find_element(*ProductPageLocators.MESSAGE_ADD_BASKET), 'not exist message for add basket'
+        assert self.is_element_present(*ProductPageLocators.MESSAGE_ADD_BASKET), 'not exist message for add basket'
 #Проверка названия вхождения названия книги в сообщение о доавблении в корзину
     def include_name_of_book_in_message_of_add(self):
         assert self.browser.find_element(*ProductPageLocators.NAME_OF_GOOD).text \
                in self.browser.find_element(*ProductPageLocators.MESSAGE_ADD_BASKET).text, 'not include name of book'
 #Проверка сообщение о стоимости корзины
     def message_of_cost_basket(self):
-        assert self.browser.find_element(*ProductPageLocators.MESSAGE_COST_BASKET), 'not exist message of cost basket'
+        assert self.is_element_present(*ProductPageLocators.MESSAGE_COST_BASKET), 'not exist message of cost basket'
 #Проверка названия вхождения стоимости книги в сообщение о стоимости корзины
     def include_cost_of_book_in_message_of_cost_basket(self):
         assert self.browser.find_element(*ProductPageLocators.COST_OF_BOOK).text \
