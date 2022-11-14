@@ -34,3 +34,12 @@ class ProductPage(BasePage):
     def include_cost_of_book_in_message_of_cost_basket(self):
         assert self.browser.find_element(*ProductPageLocators.COST_OF_BOOK).text \
                == self.browser.find_element(*ProductPageLocators.MESSAGE_COST_BASKET).text, 'not include cost of book'
+
+    # Проверка, что нет сообщение о добавлении в корзину
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.MESSAGE_ADD_BASKET), \
+            "Success message is presented, but should not be"
+
+    def should_not_be_Look_success_message_any_time(self):
+        assert self.is_disappeared(*ProductPageLocators.MESSAGE_ADD_BASKET), \
+            "Message is visible"
