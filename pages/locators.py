@@ -1,3 +1,4 @@
+# Локаторы для разных страниц тестируемого приложения, всегда пишутся CAPS'ом
 from selenium.webdriver.common.by import By
 
 

@@ -40,6 +40,7 @@ class ProductPage(BasePage):
         assert self.is_not_element_present(*ProductPageLocators.MESSAGE_ADD_BASKET), \
             "Success message is presented, but should not be"
 
+    # Проверка что сообщение пропадет через определенное время
     def should_not_be_Look_success_message_any_time(self):
         assert self.is_disappeared(*ProductPageLocators.MESSAGE_ADD_BASKET), \
             "Message is visible"
