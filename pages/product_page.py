@@ -6,7 +6,7 @@ class ProductPage(BasePage):
     # Запускается для основных тестов
     def should_be_add_to_basket(self):
         self.should_be_add_to_basket_button()
-        self.solve_quiz_and_get_code()
+        # self.solve_quiz_and_get_code()
         self.message_of_add_to_basket()
         self.include_name_of_book_in_message_of_add()
         self.message_of_cost_basket()
