@@ -29,7 +29,7 @@ class ProductPage(BasePage):
     def message_of_add_to_basket(self):
         assert self.is_element_present(*ProductPageLocators.MESSAGE_ADD_BASKET), 'not exist message for add basket'
 
-    # Проверка названия вхождения названия книги в сообщение о доавблении в корзину
+    # Проверка названия вхождения названия книги в сообщение о добавлении в корзину
     def include_name_of_book_in_message_of_add(self):
         assert self.browser.find_element(*ProductPageLocators.NAME_OF_GOOD).text \
                == self.browser.find_element(*ProductPageLocators.MESSAGE_ADD_BASKET).text, 'not include name of book'
