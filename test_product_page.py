@@ -2,9 +2,11 @@ from .pages.product_page import ProductPage
 from .pages.basket_page import BasketPage
 from .pages.login_page import LoginPage
 import pytest
+import allure
 
 
 # вместе test_guest_can_add_product_to_basket
+@allure.epic("test of don't remember")
 @pytest.mark.need_review
 @pytest.mark.parametrize('link', [pytest.param("http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
                                                "/?promo=offer0", marks=pytest.mark.xfail(reason="1")),
@@ -32,6 +34,7 @@ def test_quest_can_add_book_to_basket(browser, link):
     page.should_be_add_to_basket()
 
 
+@allure.description("success message of basket")
 @pytest.mark.xfail()
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     link_other = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
@@ -41,6 +44,7 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     page.should_not_be_success_message()
 
 
+@allure.description("заведомо ложный тест")
 @pytest.mark.xfail()
 def test_guest_cant_see_success_message(browser):
     link_other = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"

@@ -1,5 +1,6 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
+import allure
 
 
 class ProductPage(BasePage):
@@ -27,7 +28,8 @@ class ProductPage(BasePage):
 
     # Проверка присутствия сообщение о добавлении в корзину
     def message_of_add_to_basket(self):
-        assert self.is_element_present(*ProductPageLocators.MESSAGE_ADD_BASKET), 'not exist message for add basket'
+        with allure.step(f"что-то пишу не пойму"):
+            assert self.is_element_present(*ProductPageLocators.MESSAGE_ADD_BASKET), 'not exist message for add basket'
 
     # Проверка названия вхождения названия книги в сообщение о добавлении в корзину
     def include_name_of_book_in_message_of_add(self):
