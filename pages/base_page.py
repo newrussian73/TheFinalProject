@@ -1,22 +1,30 @@
-from selenium.common.exceptions import NoSuchElementException
+import math
+
+import allure
 from selenium.common.exceptions import NoAlertPresentException
+from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+
 from .locators import BasePageLocators
-import math
 
 
 class BasePage():
+    """
+    Основной класс с методами для всего проекта
+    """
     # Инициализация браузера
     def __init__(self, browser, url, timeout=10):
-        self.browser = browser
-        self.url = url
-        self.browser.implicitly_wait(timeout)
+        with allure.step(f"Открытие браузера{browser}"):
+            self.browser = browser
+            self.url = url
+            self.browser.implicitly_wait(timeout)
 
     # Открытие сайта (url)
     def open(self):
-        self.browser.get(self.url)
+        with allure.step(f"Открытие ссылки {self.url}"):
+            self.browser.get(self.url)
 
     # Сообщение если попадает исключение
     def is_element_present(self, how, what):

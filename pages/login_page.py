@@ -1,6 +1,8 @@
+import faker
+
 from .base_page import BasePage
 from .locators import LoginPageLocators
-import faker
+
 
 class LoginPage(BasePage):
     def should_be_login_page(self):
